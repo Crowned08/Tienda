@@ -27,6 +27,7 @@ aside {
 
 section {
     position: fixed;
+    overflow-y: scroll;
     background-color: bisque;
     color: black;
     top: 100px;
@@ -34,5 +35,17 @@ section {
     bottom: 20px;
     width: 80%;
     padding: 10px;
+    
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    background-color: black;
+    color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
     
 }
