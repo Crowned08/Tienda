@@ -1,12 +1,13 @@
 body {
     background-color: bisque;
+    box-sizing: border-box;
     font-family: sans-sherif;
     margin:0;
 }
 
-header {
+.header {
     position: fixed;
-    background-color: rgb(80,78,135);
+    background-color: #816Aa0;
     color: white;
     top: 0;
     left: 0;
@@ -47,5 +48,47 @@ footer {
     bottom: 0;
     width: 100%;
     padding: 20px;
+    
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 100px;
+}
+
+.nav-menu{
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.nav-menu-item{
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 100px;
+}
+
+.nav-menu-link:hover{
+    background-color: blue;
+    transition: 0.3s;
+}
+
+.nav-menu-link{
+    padding: 8px 12px;
+    border-radius: 8px;
     
 }

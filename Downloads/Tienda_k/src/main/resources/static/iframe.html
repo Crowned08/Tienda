@@ -10,14 +10,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header>
-            <h2>TechShop</h2>
-            <nav>
-                <a href="Ejemplo6.html">&triangleleft;</a> 
-                <a href="index.html">Home</a>
-                 <a href="Ejemplo8.html">&triangleright;</a>
+        <header class="header">
+            <nav class="nav">
+                <a class="nav-link logo" href="index.html">TechShop</a>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="Ejemplo8.html">&triangleleft;</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="Ejemplo2.html">&triangleright;</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="audio.html">Audios</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="Video.html">Videos</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="iframe.html">IFrames</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="formulario.html">Formulario</a></li>
+                </ul>
             </nav>
-            <hr>
         </header>
         <aside>
             <h1>iFrames</h1>
@@ -26,10 +30,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <section>
             <h2>iFrames</h2>
             <article>
-                <h3>Un iFrame empotrado</h3>
-                <iframe src="https://sistemas.ufidelitas.ac.cr/">
-                    
+                <h3>Un sitio empotrado</h3>
+                <iframe src="https://sistemas.ufidelitas.ac.cr/"
+                        width="1000"
+                        height="400">
                 </iframe>
+            </article>
+            
+            <article>
+                <h3>Un video de youtube empotrado</h3>
+                <iframe width="400" height="200" src="https://www.youtube.com/embed/JUQD_EV-J7k" title="💙 Un día de San Valentín | POCOYÓ en ESPAÑOL | [80 min] Caricaturas y Dibujos Animados para niños" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </article>
+            
+            <article>
+                <h3>Ubicanos</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.400734783599!2d-83.97714612583886!3d9.900543090199848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e1006af2f457%3A0x17f1ceec6f46c5d4!2sDonde%20Maritza!5e0!3m2!1ses-419!2scr!4v1717550737152!5m2!1ses-419!2scr" width="600" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </article>
         </section>
     </body>
