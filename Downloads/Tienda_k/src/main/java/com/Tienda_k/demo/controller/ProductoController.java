@@ -23,6 +23,8 @@ public class ProductoController {
     
     @Autowired
     private ProductoService productoService;
+    
+    @Autowired
     private CategoriaService categoriaService;
     
     @GetMapping("/listado")
@@ -31,8 +33,8 @@ public class ProductoController {
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos",productos.size());
         
-        //var categorias = categoriaService.getCategorias(false);
-        //model.addAttribute("categorias", categorias);
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
         
         return "/producto/listado";
     }
