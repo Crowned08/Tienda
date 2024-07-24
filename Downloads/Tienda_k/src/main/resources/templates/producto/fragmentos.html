@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Mi primer apagina dinámica-->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
     <head th:replace="~{layout/plantilla :: head}">
         <title>TechShop 2020</title>
         <meta charset="UTF-8"/>
@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">   
-                        <button 
+                        <button  sec:authorize='hasRole("ROLE_ADMIN")' 
                             type="button" 
                             class="btn btn-primary btn-block" 
                             data-bs-toggle="modal" 
@@ -36,6 +36,7 @@
                         <div class="modal-header bg-info text-white">
                             <h5 class="modal-title">[[#{producto.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            
                         </div> 
                         <form th:action="@{/producto/guardar}" th:object="${producto}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
@@ -108,7 +109,7 @@
                                             <th>[[#{producto.total}]]</th>
                                             <th>[[#{producto.activo}]]</th>
                                             <th>[[#{producto.categoria}]]</th>
-                                            <th></th></tr>
+                                            <th sec:authorize='hasRole("ROLE_ADMIN")'></th></tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="producto, contador : ${productos}">
@@ -119,7 +120,7 @@
                                             <td style="text-align: end" >[[${producto.precio*producto.existencias}]]</td>
                                             <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
                                             <td>[[${producto.categoria.descripcion}]]</td>
-                                            <td><a th:href="@{/producto/eliminar/}+${producto.idProducto}"
+                                            <td sec:authorize='hasRole("ROLE_ADMIN")'><a th:href="@{/producto/eliminar/}+${producto.idProducto}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/producto/modificar/}+${producto.idProducto}"
@@ -146,7 +147,7 @@
         </section>
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
-        <section th:fragment="editarProducto">
+        <section th:fragment="editarProducto" >
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
