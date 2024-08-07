@@ -12,44 +12,62 @@
 
             <div class="row p-4">
 
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link" href="/pruebas/listado">[[#{pruebas.todas}]]</a>
-                </li>
-                <li class="nav-item" th:each="c:${categorias}"><!-- Agarra la cantidad de elementos -->
-                    <a class="nav-link" th:href="@{/pruebas/listado/}+${c.idCategoria}">[[${c.descripcion}]]</a>
-                </li>  
-            </ul>
-          </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pruebas/listado">[[#{pruebas.todas}]]</a>
+                    </li>
+                    <li class="nav-item" th:each="c:${categorias}"><!-- Agarra la cantidad de elementos -->
+                        <a class="nav-link" th:href="@{/pruebas/listado/}+${c.idCategoria}">[[${c.descripcion}]]</a>
+                    </li>  
+                </ul>
+            </div>
         </section>
 
-         <!-- 1 Sección para mostrar los tabs de las categorias-->
+        <!-- 1 Sección para mostrar los tabs de las categorias-->
         <section th:fragment="listado" class="bg-light">
             <div class="row row-cols-4">
                 <div class="card" th:each="p : ${productos}">                  
                     <figure>
-                        <img th:src="${p.rutaImagen}" alt="alt" height="200"/>   
-                        <figcaption>
-                            ¢ [[${p.precio}]] ([[${p.existencias}]])     
+                        <img th:src="${p.rutaImagen}" height="200"/>
+                        <figcaption class="d-flex justify-content-evenly">
+                            <div>
+                                ¢[[${p.precio}]] ([[${p.existencias}]])
+                            </div>
+                            <div>
+                                <form>
+                                    <input type="hidden" 
+                                           name="idProducto" 
+                                           th:value="${p.idProducto}"/>
+                                    <input type="hidden" 
+                                           name="texto" 
+                                           th:value="${p.existencias}"/>
+                                    <button class="btn btn-light"
+                                            id="addCar" 
+                                            name="addCar" 
+                                            onclick="addCart(this.form)" 
+                                            type="button">
+                                        <i class="fas fa-cart-plus"></i></button>
+                                </form>
+                            </div>
                         </figcaption>
-                        
-                        
                     </figure>
                     
                     
+
+
                     <div class="card-header">
                         <h4>[[${p.descripcion}]]</h4>
                     </div>
                     <div class="car-body">
                         <p>[[${p.detalle}]]</p>
-                        
+
                     </div>
                 </div>
-     
+
             </div>
         </section>
-        
-         <section th:fragment="filtros" class="bg-light">
+
+        <section th:fragment="filtros" class="bg-light">
 
             <div class="row row-cols-4 m-4">
                 <div class="card">
@@ -83,8 +101,10 @@
                                     class="btn btn-primary">
                                 <i class="fas fa-check"></i>[[#{pruebas.ampliadas}]]
                             </button>
+                        </div>
                 </div>
-          </div>
         </section>
+
+        
     </body>
 </html>
